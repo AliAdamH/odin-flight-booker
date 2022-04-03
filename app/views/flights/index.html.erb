@@ -1,7 +1,8 @@
 <section class="section">
     <div class="container">
         <div class="columns is-centered">
-            <div class="column box is-6">
+            <div class="column is-6">
+                <div class="box">
                     <%= form_with url: flights_path, method: :get do |form| %>
                         <div class="field">
                             <%= label_tag 'departure_code', 'Departure', class: 'label' %>
@@ -57,17 +58,15 @@
                             </div>
                         </div>
                     <% end %>
-                
+                </div>
             </div>
         </div>
         <% if @available_flights %>
         <div class="columns is-centered">
-            <div class="column box is-6">
-                <% @available_flights.each do |flight| %>
-                    <p class="content">
-                        <%= flight.departure_airport_id %>
-                    </p>
-                <% end %>
+            <div class="column is-6">
+                <div class="box">
+                    <%= render partial: 'result', collection: @available_flights, as: :flight %>
+                </div>
             </div>
         </div>
         <% end %>
