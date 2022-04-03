@@ -6,7 +6,7 @@
                         <div class="field">
                             <%= label_tag 'departure_code', 'Departure', class: 'label' %>
                             <div class="control">
-                                <div class="select is-medium">
+                                <div class="select is-medium is-fullwidth">
                                     <%= form.collection_select :departure_code, @airports, :id, :code %>
                                 </div>
                             </div>
@@ -14,7 +14,7 @@
                         <div class="field">
                             <%= label_tag 'arrival_code', 'Arrival', class: 'label' %>
                             <div class="control">
-                                <div class="select is-medium">
+                                <div class="select is-medium is-fullwidth">
                                     <%= form.collection_select :arrival_code, @airports, :id, :code %>
                                 </div>
                             </div>
@@ -22,13 +22,54 @@
                         <div class="field">
                             <%= label_tag 'num_tickets', 'Passengers', class: 'label' %>
                             <div class="control">
-                                <div class="select is-medium">
+                                <div class="select is-medium is-fullwidth">
                                     <%= form.select :num_tickets, (1..4) %>
                                 </div>
                             </div>
                         </div>
+                        <div class="field">
+                            <%= label_tag 'day', 'Available Days', class: 'label' %>
+                            <div class="control">
+                                <div class="select is-medium is-fullwidth">
+                                    <%= select_tag 'day', options_for_select(@days, selected: 1 ) %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <%= label_tag 'month', 'Available Months', class: 'label' %>
+                            <div class="control">
+                                <div class="select is-medium is-fullwidth">
+                                    <%= select_tag 'month', options_for_select(@months) %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <%= label_tag 'year', 'Available Years', class: 'label' %>
+                            <div class="control">
+                                <div class="select is-medium is-fullwidth">
+                                    <%= select_tag 'year', options_for_select(@years) %>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="level">
+                            <div class="level-item is-justify-content-flex-end">
+                                <%= form.submit :Search, class: "button is-link has-text-weight-medium" %>
+                            </div>
+                        </div>
                     <% end %>
+                
             </div>
         </div>
+        <% if @available_flights %>
+        <div class="columns is-centered">
+            <div class="column box is-6">
+                <% @available_flights.each do |flight| %>
+                    <p class="content">
+                        <%= flight.departure_airport_id %>
+                    </p>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
     </div>
 </section>
