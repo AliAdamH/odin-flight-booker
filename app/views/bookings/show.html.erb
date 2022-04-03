@@ -1,0 +1,19 @@
+<section class="section">
+    <div class="container">
+        <h1 class='title has-text-centered'>Booking number : <%= @booking.id %> </h1>
+        <div class="columns">
+            <div class="column is-6">
+                <h3 class='title has-text-centered is-4'> Flight Info </h3>
+                <%= render partial: 'info', locals: { flight: @booking.flight }%>
+            </div>
+            <div class="column is-6">
+                <h3 class='title has-text-centered is-4'> Passenger Info </h3>
+                <div class="box">
+                    <% @booking.passengers.each_with_index do |passenger, index| %>
+                        <p class="content"><%= passenger.name %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

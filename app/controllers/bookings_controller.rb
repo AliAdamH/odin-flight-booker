@@ -1,6 +1,12 @@
 class BookingsController < ApplicationController
 
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
+
+
   def new
     @flight = Flight.includes(:departure_airport, :arrival_airport).find(params[:flight_id])
     @booking = Booking.new
@@ -15,7 +21,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @booking, notice: 'You have succesfully booked your flight'
     else
-      redirect_to root_path
+      render :new
     end 
   end
 

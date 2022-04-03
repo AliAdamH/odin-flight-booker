@@ -1,18 +1,18 @@
 <div class="card">
-    <div class="card-header">
-        <header class="header">
-            Flight Number : <%= flight.id %>
-        </header>
-    </div>
+    <header class="card-header">
+        <p class="card-header-title is-centered">
+        Flight Number : <%= flight.id %>
+        </p>
+    </header>
     <div class="card-content">
         <p class="content">
-            From Airport : <%= flight.departure_airport.code %>
+            <b>From Airport :</b> <%= flight.departure_airport.code %>
         </p>
         <p class="content">
-            To Airport : <%= flight.arrival_airport.code %>
+            <b>To Airport : </b><%= flight.arrival_airport.code %>
         </p>
         <p class="content">
-            Flying At : <%= flight.start %>
+            <b>Flying At :</b> <%= flight.start %>
         </p>
     </div>
 </div>
