@@ -1,0 +1,12 @@
+<%= form_with url: flights_path, method: :get %>
+    <div class="field">
+        <div class="select">
+            <%= form.collection_select :departure_code, @airports, :id, :code %>
+        </div>
+    </div>
+    <div class="field">
+        <div class="select">
+             <%= form.collection_select :arrival_code, @airports, :id, :code %>
+        </div>
+    </div>
+<% end %>
