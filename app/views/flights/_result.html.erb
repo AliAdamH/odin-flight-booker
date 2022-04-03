@@ -1,4 +1,4 @@
-<%= form_with url: '/', method: :get do |f| %>
+<%= form_with url: new_booking_path , method: :get do |f| %>
     <div class="control">
         <%= f.hidden_field :num_tickets, value: params[:num_tickets] %>
         <%= f.radio_button :flight_id, flight.id %>
