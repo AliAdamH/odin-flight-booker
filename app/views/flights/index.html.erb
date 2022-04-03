@@ -7,7 +7,7 @@
                             <%= label_tag 'departure_code', 'Departure', class: 'label' %>
                             <div class="control">
                                 <div class="select is-medium is-fullwidth">
-                                    <%= form.collection_select :departure_code, @airports, :id, :code %>
+                                    <%= form.collection_select :departure_code, @airports, :id, :code, selected: params[:departure_code] || 2  %>
                                 </div>
                             </div>
                         </div>
@@ -15,7 +15,7 @@
                             <%= label_tag 'arrival_code', 'Arrival', class: 'label' %>
                             <div class="control">
                                 <div class="select is-medium is-fullwidth">
-                                    <%= form.collection_select :arrival_code, @airports, :id, :code %>
+                                    <%= form.collection_select :arrival_code, @airports, :id, :code, selected: params[:arrival_code] || 1 %>
                                 </div>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                             <%= label_tag 'num_tickets', 'Passengers', class: 'label' %>
                             <div class="control">
                                 <div class="select is-medium is-fullwidth">
-                                    <%= form.select :num_tickets, (1..4) %>
+                                    <%= form.select :num_tickets, (1..4), selected: params[:num_tickets] || 1 %>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             <%= label_tag 'day', 'Available Days', class: 'label' %>
                             <div class="control">
                                 <div class="select is-medium is-fullwidth">
-                                    <%= select_tag 'day', options_for_select(@days, selected: 1 ) %>
+                                    <%= select_tag 'day', options_for_select(@days, selected: params[:day] || 1 ) %>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <%= label_tag 'month', 'Available Months', class: 'label' %>
                             <div class="control">
                                 <div class="select is-medium is-fullwidth">
-                                    <%= select_tag 'month', options_for_select(@months) %>
+                                    <%= select_tag 'month', options_for_select(@months, selected: params[:month] || 4 ) %>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                             <%= label_tag 'year', 'Available Years', class: 'label' %>
                             <div class="control">
                                 <div class="select is-medium is-fullwidth">
-                                    <%= select_tag 'year', options_for_select(@years) %>
+                                    <%= select_tag 'year', options_for_select(@years, selected: params[:year] || 2022 ) %>
                                 </div>
                             </div>
                         </div>
