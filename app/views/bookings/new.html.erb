@@ -4,6 +4,7 @@
             <div class="column is-6">
             
             <%= form_with model: @booking do |f| %>
+                <%= f.hidden_field :flight_id, value: @flight.id %>
                 <%= render partial: 'info', locals: { flight: @flight} %>
                 <div class="box">
                             <%= f.fields_for :passengers do |passenger_form| %>
