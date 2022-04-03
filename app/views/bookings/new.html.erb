@@ -1,0 +1,35 @@
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+            
+            <%= form_with model: @booking do |f| %>
+                <%= render partial: 'info', locals: { flight: @flight} %>
+                <div class="box">
+                            <%= f.fields_for :passengers do |passenger_form| %>
+                            <h3 class="subtitle">Informations for passenger </h3>
+                            <div class="field">
+                                <div class="control">
+                                    <%= passenger_form.label :name %>
+                                    <%= passenger_form.text_field :name, class: 'input' %>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <%= passenger_form.label :email %>
+                                    <%= passenger_form.text_field :email, class: 'input'  %>
+                                </div>
+                            </div>
+                        <% end %>
+                    <div class="level">
+                        <div class="level-item is-justify-content-flex-end">
+                            <%= f.submit :Apply, class: "button is-link has-text-weight-medium" %>
+                        </div>
+                    </div>
+                </div>
+
+            <% end %>
+            </div>
+        </div>
+    </div>
+</section>
