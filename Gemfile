@@ -49,6 +49,7 @@ group :development do
   gem 'spring'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'faker', '~> 2.20'
+  gem 'letter_opener', '~> 1.8', '>= 1.8.1'
 end
 
 group :test do
