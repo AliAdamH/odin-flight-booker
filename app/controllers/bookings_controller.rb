@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     if @booking.save
       @booking.passengers.each do |passenger|
-        PassengerMailer.with(passenger: passenger).deliver_later
+        PassengerMailer.with(passenger: passenger).success_email.deliver_later
       end
       redirect_to @booking, notice: 'You have succesfully booked your flight'
     else
