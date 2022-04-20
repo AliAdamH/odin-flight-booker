@@ -64,8 +64,8 @@
         <% if @available_flights %>
         <div class="columns is-centered">
             <div class="column is-6">
-                <div class="box">
-                    <%= render partial: 'result', collection: @available_flights, as: :flight %>
+                <div class="box has-text-centered">
+                    <%= render(partial: 'result', collection: @available_flights, as: :flight) || 'No flights available' %>
                 </div>
             </div>
         </div>
