@@ -12,7 +12,14 @@
             <b>To Airport : </b><%= flight.arrival_airport.code %>
         </p>
         <p class="content">
-            <b>Flying At :</b> <%= flight.start %>
+            <b>Flying At :</b> <%= flight.start.strftime('%a %b %d %Y | %H:%M') %>
+        </p>
+        <% flight_time = Time.at(flight.duration*60).utc %>
+        <p class="content">
+            <b>Flight Duration :</b> <%= flight_time.strftime("%H Hours %M Minutes") %>
+        </p>
+        <p class="content">
+            <b>Expected arrival at :</b> <%= (flight.start + flight_time).strftime('%a %b %d %Y | %H:%M') %>
         </p>
     </div>
 </div>
