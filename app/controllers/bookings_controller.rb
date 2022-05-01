@@ -24,6 +24,8 @@ class BookingsController < ApplicationController
       end
       redirect_to @booking, notice: 'You have succesfully booked your flight'
     else
+      flash.now[:alert] = 'Invalid passenger information'
+      @flight = Flight.find(params[:booking][:flight_id])
       render :new
     end 
   end
